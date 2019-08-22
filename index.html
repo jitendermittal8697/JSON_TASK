@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Document</title>
+    <script>
+        function getJSON() {
+            fetch('http://localhost:3001/getJSON', {
+                    mode: 'no-cors'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    Object.keys(data).forEach(function (key) {
+                        document.getElementById('data').innerHTML += '<li>' + key + '    ---->  ' + data[key] + '</li>';
+                    });
+                })
+                .catch(err => console.log(err));
+        }
+    </script>
+</head>
+
+<body>
+    <p>How To Read A JSON File.</p>
+    <button onclick="getJSON()"> CLICK TO GET DATA</button>
+    <div>
+        <ol id='data'>
+
+        </ol>
+    </div>
+</body>
+
+</html>
